@@ -6,10 +6,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
+<meta name = "viewport" content = "width=device-width, initial-scale=1">
+<title>Cool Bootstrap</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+
 </head>
-<style>
-</style>
 <body>
+<div class="container">
 
 	<h2>Login Page</h2>
 	<form method="POST" action="tryLogin.do">
@@ -41,21 +45,13 @@
     <br>
     
 	</form:form>
-
+</div>
 </body>
 
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <%-- <script type="text/javascript" src="<c:url value="/assets/css/bootstrap-3.3.7/dist/js/bootstrap.min.js"/>"></script> --%>
-<script type="text/javascript"
-	src="<c:url value="/assets/js/analytics.js"/>"></script>
-<script type="text/javascript"
-	src="<c:url value="/assets/js/ie-emulation-modes-warning.js"/>"></script>
-<script type="text/javascript" src="<c:url value="/assets/js/app.js"/>"></script>
-<script type="text/javascript"
-	src="<c:url value="/assets/js/engineV3.js"/>"></script>
-<script type="text/javascript"
-	src="<c:url value="/assets/js/owl.carousel.min.js"/>"></script>
+<script src="js/bootstrap.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
 

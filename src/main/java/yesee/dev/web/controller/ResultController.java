@@ -53,7 +53,7 @@ public class ResultController {
 	}
 	
 
-	 @RequestMapping(value = "/showDataListJs2", method = RequestMethod.POST)
+	 @RequestMapping(value = "/showDataListJs2", method = RequestMethod.POST, produces="application/json")
 	 @ResponseBody
 	 public DataTransfer showDataList2() {
 	 List<UserInfo> userInfoList = userInfoService.findAll();
@@ -100,7 +100,6 @@ public class ResultController {
 	// }
 
 	@RequestMapping(value = "/deleteUserInfoJs", method = RequestMethod.POST)
-	@ResponseBody
 	public void deleteUserInfoByIdJs(Integer id) {
 		LOGGER.info(" New Delete Function {}", id);
 		userInfoService.deleteUserInfo(id);
@@ -115,7 +114,6 @@ public class ResultController {
 	}
 
 	@RequestMapping(value = "/editUserInfoJs", method = RequestMethod.POST)
-	@ResponseBody
 	public void editUserInfoJs(UserInfo userInfo) { // ModelAttribute("userInfo")
 		userInfo.setDateTime(new Date());
 		LOGGER.info("go to editUserInfo controller");
@@ -137,7 +135,6 @@ public class ResultController {
 	}
 
 	@RequestMapping(value = "/addUserInfoJs", method = RequestMethod.POST)
-	@ResponseBody
 	public void addUserInfoJs(UserInfo userInfo) { // ModelAttribute("userInfo")
 		userInfo.setDateTime(new Date());
 		LOGGER.info("go to addUserInfoJs controller");

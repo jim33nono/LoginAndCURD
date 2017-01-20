@@ -8,9 +8,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-	<script src="//cdnjs.cloudflare.com/ajax/libs/alertify.js/0.3.10/alertify.min.js"></script>
+<title>Cool Bootstrap</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">	
 </head>
 <body>
+<div class="container">
+
 <!-- 	<h2>Edit By Spring Form</h2> -->
 <%-- 	<form:form action="editUserInfo.do" commandName="userInfo"> --%>
 <!--     <table> -->
@@ -37,6 +40,8 @@
 <!--         </tr> -->
 <!--     </table> -->
 <%-- 	</form:form> --%>
+
+
 	<table class="tableDataList" border="2" width="50%" cellpadding="4">
 	
 	</table>
@@ -45,10 +50,10 @@
 		
 	</table>
 	<br>
-	<table id="result" border="2" width="50%" cellpadding="4">
+<!-- 	<table id="result" border="2" width="50%" cellpadding="4"> -->
 		
 		
-	</table>
+<!-- 	</table> -->
 	
 	<h2>Edit Function</h2>
     <table>
@@ -76,35 +81,35 @@
     </table>
 	<br>
 	
-	<h2>Add Function</h2>
-    <table>
-        <tr>
-            <td>Account: </td>
-            <td><input class="accountAdd"/></td>
-        </tr>
-        <tr>
-            <td>Password: </td>
-            <td><input class="passwordAdd"/></td>
-        </tr>
-        <tr>
-            <td>User Name: </td>
-            <td><input class="usernameAdd"/></td>
-        </tr>
-        <tr>
-            <td>Country: </td>
-            <td><input class="countryAdd"/></td>
-        </tr>
-        <tr>
-            <td>Phone: </td>
-            <td><input class="phoneAdd"/></td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <input type="submit" value="Add Submit" class="addButton" />
-                <!--                 onclick="location.href='resultController.do'" -->
-            </td>
-        </tr>
-    </table>
+<!-- 	<h2>Add Function</h2> -->
+<!--     <table> -->
+<!--         <tr> -->
+<!--             <td>Account: </td> -->
+<!--             <td><input class="accountAdd"/></td> -->
+<!--         </tr> -->
+<!--         <tr> -->
+<!--             <td>Password: </td> -->
+<!--             <td><input class="passwordAdd"/></td> -->
+<!--         </tr> -->
+<!--         <tr> -->
+<!--             <td>User Name: </td> -->
+<!--             <td><input class="usernameAdd"/></td> -->
+<!--         </tr> -->
+<!--         <tr> -->
+<!--             <td>Country: </td> -->
+<!--             <td><input class="countryAdd"/></td> -->
+<!--         </tr> -->
+<!--         <tr> -->
+<!--             <td>Phone: </td> -->
+<!--             <td><input class="phoneAdd"/></td> -->
+<!--         </tr> -->
+<!--         <tr> -->
+<!--             <td colspan="2"> -->
+<!--                 <input type="submit" value="Add Submit" class="addButton" /> -->
+<!--                                 onclick="location.href='resultController.do'" -->
+<!--             </td> -->
+<!--         </tr> -->
+<!--     </table> -->
     
     <br>
 	<h2>Add By Spring Form</h2>
@@ -125,18 +130,16 @@
         </tr>
         <tr>
             <td>User Name: </td>
-            <td><form:input path="username"/></td>
-            <td><form:errors path="username" cssclass="error" style="color:#F02D2D"></form:errors></td>
+            <td><form:input path="username"/></td>          
         </tr>
         <tr>
             <td>Country: </td>
             <td><form:input path="country"/></td>
-            <td><form:errors path="country" cssclass="error" style="color:#F02D2D"></form:errors></td>
+   
         </tr>
         <tr>
             <td>Phone: </td>
             <td><form:input path="phone"/></td>
-            <td><form:errors path="phone" cssclass="error" style="color:#F02D2D"></form:errors></td>
         </tr>
         <tr>
             <td colspan="2">
@@ -199,20 +202,17 @@
 	<br>
 	
 	
-	
+</div>	
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script type="text/javascript" src="<c:url value="/assets/js/analytics.js"/>"></script>
-<script type="text/javascript" src="<c:url value="/assets/js/ie-emulation-modes-warning.js"/>"></script>
-<script type="text/javascript" src="<c:url value="/assets/js/app.js"/>"></script>
-<script type="text/javascript" src="<c:url value="/assets/js/engineV3.js"/>"></script>
-<script type="text/javascript" src="<c:url value="/assets/js/owl.carousel.min.js"/>"></script>
+<script src="js/bootstrap.min.js"></script>
+
 <script type="text/javascript">
 	$(function(){
 		bindEvents();
 		showDataList();
-// 		showDataList2();
-		showDataList3();
+		showDataList2();
+// 		showDataList3();
 	});
 	
 	function bindEvents(){
@@ -238,23 +238,53 @@
 	}
 	
 	function showDataList2(){
+		
 		$.post('showDataListJs2.do',{
 		}).success(function(data){
 			console.log(data);
-			$('.datalist').append('<tr><th>Id</th><th>User Name</th><th>Country</th><th>Phone</th><th>Date Time</th><th>Delete</th></tr>');
-				var dataList = data.getElementsByTagName("userInfoList123");
-    			for (var i = 0 ; i < 3 ; i++) {
-					var idTest = dataList[i].getElementsByTagName("id");
-					console.log(idTest);
-        			$('.datalist')
-        				.append('<tr><td></td></tr>' )
-        				.append(dataList[i].getElementsByTagName("id"))
-//         				.find('td:last')
-//          					.append(dataList[i].getElementsByTagName("id"))
-    			}
+// 			$('.datalist').append('<tr><th>Id</th><th>User Name</th><th>Country</th><th>Phone</th><th>Date Time</th><th>Delete</th></tr>');
+// 				var dataList = data.getElementsByTagName("userInfoList123");
+//     			for (var i = 0 ; i < 3 ; i++) {
+// 					var idTest = dataList[i].getElementsByTagName("id");
+// 					console.log(idTest);
+//         			$('.datalist')
+//         				.append('<tr><td></td></tr>' )
+//         				.append(dataList[i].getElementsByTagName("id"))
+// //         				.find('td:last')
+// //          					.append(dataList[i].getElementsByTagName("id"))
+//     			}
 
 		}) 
 	}
+	
+// 	function showDataList2(){
+// 		$.ajax({
+// 		    url : "showDataListJs2.do",
+// 		    type: "POST",
+// 		    dataType:"json",
+// 		    success: function(data, textStatus, jqXHR)
+// 		    {
+// 		    	console.log(data);
+// 				$('.datalist').append('<tr><th>Id</th><th>User Name</th><th>Country</th><th>Phone</th><th>Date Time</th><th>Delete</th></tr>');
+// 					var dataList = data.getElementsByTagName("userInfoList123");
+// 	    			for (var i = 0 ; i < 3 ; i++) {
+// 						var idTest = dataList[i].getElementsByTagName("id");
+// 						console.log(idTest);
+// 	        			$('.datalist')
+// 	        				.append('<tr><td></td></tr>' )
+// 	        				.append(dataList[i].getElementsByTagName("id"))
+// //	         				.find('td:last')
+// //	          					.append(dataList[i].getElementsByTagName("id"))
+// 	    			}
+// 		    },
+// 		    error: function (jqXHR, textStatus, errorThrown)
+// 		    {
+// 		 	console.log(jqXHR);
+// 		 	console.log(textStatus);
+// 		    }
+// 		});
+		
+// 	}
 	
 	function showDataList(){
 		$.get('showDataListJs.do').success(function(data){
