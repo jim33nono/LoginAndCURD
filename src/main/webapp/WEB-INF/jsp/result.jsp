@@ -42,10 +42,12 @@
 <%-- 	</form:form> --%>
 
 
-	<table class="tableDataList" border="2" width="50%" cellpadding="4">
+	<table class="tableDataList" border="2" cellpadding="4">
 	
 	</table>
-	<table class="datalist" border="2" width="50%" cellpadding="4">
+	
+	<h2>User information list</h2>
+	<table class="table table-striped" id="datalist" border="2" cellpadding="4">
 		
 		
 	</table>
@@ -55,31 +57,59 @@
 		
 <!-- 	</table> -->
 	
-	<h2>Edit Function</h2>
-    <table>
-        <tr>
-            <td>ID: </td>
-            <td><input class="idEdit"/></td>
-        </tr>
-        <tr>
-            <td>User Name: </td>
-            <td><input class="usernameEdit"/></td>
-        </tr>
-        <tr>
-            <td>Country: </td>
-            <td><input class="countryEdit"/></td>
-        </tr>
-        <tr>
-            <td>Phone: </td>
-            <td><input class="phoneEdit"/></td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <input type="submit" value="Edit Submit" class="editButton" onclick="location.href='resultController.do'"/>
-            </td>
-        </tr>
-    </table>
+	
 	<br>
+   	<h2>Edit Form</h2>
+    <form class="editForm" method="post">
+ 		<div class="form-group">
+    		<label for="inputId">ID</label>
+    		<input type="text" class="form-control" id="inputId" name="editId" placeholder="ID">
+  		</div>
+  		<div class="form-group">
+    		<label for="inputUserName">User Name</label>
+    		<input type="text" class="form-control" id="inputUserName" name="editUsername" placeholder="User Name">
+  		</div>
+  		<div class="form-group">
+    		<label for="inputCountry">Country</label>
+    		<input type="text" class="form-control" id="inputCountry" name="editCountry" placeholder="Country">
+  		</div>
+  		<div class="form-group">
+    		<label for="inputPhone">Phone</label>
+    		<input type="text" class="form-control" id="inputPhone" name="editPhone" placeholder="Phone">
+  		</div>
+  		
+ 		<button type="submit" class="btn btn-default" id="editButton">Submit</button>
+	</form>
+	<br>
+	
+<!-- 	<h2>Edit Function</h2> -->
+<!--     <table> -->
+<!--         <tr> -->
+<!--             <td>ID: </td> -->
+<!--             <td><input class="idEdit"/></td> -->
+<!--         </tr> -->
+<!--         <tr> -->
+<!--             <td>User Name: </td> -->
+<!--             <td><input class="usernameEdit"/></td> -->
+<!--         </tr> -->
+<!--         <tr> -->
+<!--             <td>Country: </td> -->
+<!--             <td><input class="countryEdit"/></td> -->
+<!--         </tr> -->
+<!--         <tr> -->
+<!--             <td>Phone: </td> -->
+<!--             <td><input class="phoneEdit"/></td> -->
+<!--         </tr> -->
+<!--         <tr> -->
+<!--             <td colspan="2"> -->
+<!--                 <input type="submit" value="Edit Submit" class="editButton" /> -->
+
+<!--             </td> -->
+<!--         </tr> -->
+<!--     </table> -->
+<!-- 	<br> -->
+	
+	<!--                 onclick="location.href='resultController.do'" -->
 	
 <!-- 	<h2>Add Function</h2> -->
 <!--     <table> -->
@@ -106,52 +136,81 @@
 <!--         <tr> -->
 <!--             <td colspan="2"> -->
 <!--                 <input type="submit" value="Add Submit" class="addButton" /> -->
-<!--                                 onclick="location.href='resultController.do'" -->
+                                
 <!--             </td> -->
 <!--         </tr> -->
 <!--     </table> -->
     
+   <br>
+   <h2>Add Form</h2>
+   <form method="post">
+ 		<div class="form-group">
+    		<label for="inputAccount">Account</label>
+    		<input type="text" class="form-control" id="inputAccount" name=addAccount" placeholder="Account">
+  		</div>
+  		<div class="form-group">
+    		<label for="inputPassword">Password</label>
+    		<input type="text" class="form-control" id="inputPassword" name="addPassword" placeholder="Password">
+  		</div>
+  		<div class="form-group">
+    		<label for="inputUserName">User Name</label>
+    		<input type="text" class="form-control" id="inputUserName" name="addUsername" placeholder="User Name">
+  		</div>
+  		<div class="form-group">
+    		<label for="inputCountry">Country</label>
+    		<input type="text" class="form-control" id="inputCountry" name="addCountry" placeholder="Country">
+  		</div>
+  		<div class="form-group">
+    		<label for="inputPhone">Phone</label>
+    		<input type="text" class="form-control" id="inputPhone" name="addPhone" placeholder="Phone">
+  		</div>
+  		
+ 		<button type="submit" class="btn btn-default" id="addButton">Submit</button>
+	</form>
+    
     <br>
-	<h2>Add By Spring Form</h2>
-	<form:form action="addUserInfo.do" commandName="userInfo">
-    <table>
-        <tr>
-            <td><form:input path="id" type="hidden"/></td>
-        </tr>
-        <tr>
-            <td>Account: </td>
-            <td><form:input path="account"/></td>
-            <td><form:errors path="account" cssclass="error" style="color:#F02D2D"></form:errors></td>
-        </tr>
-        <tr>
-            <td>Password: </td>
-            <td><form:input path="password"/></td>
-            <td><form:errors path="password" cssclass="error" style="color:#F02D2D"></form:errors></td>
-        </tr>
-        <tr>
-            <td>User Name: </td>
-            <td><form:input path="username"/></td>          
-        </tr>
-        <tr>
-            <td>Country: </td>
-            <td><form:input path="country"/></td>
+<!-- 	<h2>Add By Spring Form</h2> -->
+<%-- 	<form:form action="addUserInfo.do" commandName="userInfo"> --%>
+<!--     <table> -->
+<!--         <tr> -->
+<%--             <td><form:input path="id" type="hidden"/></td> --%>
+<!--         </tr> -->
+<!--         <tr> -->
+<!--             <td>Account: </td> -->
+<%--             <td><form:input path="account"/></td> --%>
+<%--             <td><form:errors path="account" cssclass="error" style="color:#F02D2D"></form:errors></td> --%>
+<!--         </tr> -->
+<!--         <tr> -->
+<!--             <td>Password: </td> -->
+<%--             <td><form:input path="password"/></td> --%>
+<%--             <td><form:errors path="password" cssclass="error" style="color:#F02D2D"></form:errors></td> --%>
+<!--         </tr> -->
+<!--         <tr> -->
+<!--             <td>User Name: </td> -->
+<%--             <td><form:input path="username"/></td>           --%>
+<!--         </tr> -->
+<!--         <tr> -->
+<!--             <td>Country: </td> -->
+<%--             <td><form:input path="country"/></td> --%>
    
-        </tr>
-        <tr>
-            <td>Phone: </td>
-            <td><form:input path="phone"/></td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <input type="submit" value="Submit" /> 
-<!--                 onclick="location.href='resultController.do'" -->
-            </td>
-        </tr>
-    </table>
-	</form:form>
+<!--         </tr> -->
+<!--         <tr> -->
+<!--             <td>Phone: </td> -->
+<%--             <td><form:input path="phone"/></td> --%>
+<!--         </tr> -->
+<!--         <tr> -->
+<!--             <td colspan="2"> -->
+<!--                 <input type="submit" value="Submit" />  -->
+<!--                 onclick="location.href='resultController.do'" --> 
+<!--             </td> -->
+<!--         </tr> -->
+<!--     </table> -->
+<%-- 	</form:form> --%>
+
+	<br>
 	<div id = 'test'> </div>
 	<h1>User information list</h1>
-	<table border="2" width="50%" cellpadding="4">
+	<table class="table table-striped" border="2" cellpadding="4">
 		<tr>
 			<th>Id</th>
 			<th>User Name</th>
@@ -220,10 +279,10 @@
 		$('.btnDelete').bind({
 			click:deleteUserInfoById
 		})
-		$('.editButton').bind({
+		$('#editButton').bind({
 			click:editUserInfo
 		})
-		$('.addButton').bind({
+		$('#addButton').bind({
 			click:addUserInfo
 		})
 // 		$('#deleteBtn').click(function(){
@@ -238,22 +297,31 @@
 	}
 	
 	function showDataList2(){
-		
+		$("#datalist").html('');
 		$.post('showDataListJs2.do',{
 		}).success(function(data){
-			console.log(data);
-// 			$('.datalist').append('<tr><th>Id</th><th>User Name</th><th>Country</th><th>Phone</th><th>Date Time</th><th>Delete</th></tr>');
-// 				var dataList = data.getElementsByTagName("userInfoList123");
-//     			for (var i = 0 ; i < 3 ; i++) {
-// 					var idTest = dataList[i].getElementsByTagName("id");
-// 					console.log(idTest);
-//         			$('.datalist')
-//         				.append('<tr><td></td></tr>' )
-//         				.append(dataList[i].getElementsByTagName("id"))
-// //         				.find('td:last')
-// //          					.append(dataList[i].getElementsByTagName("id"))
-//     			}
-
+			rowData = data['userInfoList'];
+			console.log(rowData);
+			$("#datalist").append("<tr>" +
+			"<th>Id</th>" +
+			"<th>User Name</th>" +
+			"<th>Country</th>" +
+			"<th>Phone</th>" +
+			"<th>Date Time</th>" +
+			"<th>Delete</th>" +
+			"<th>Delete</th>" +
+			"</tr>"
+			);
+			$.each(rowData, function(i, item){
+				$("#datalist").append("<tr>" +
+						              "<td>" + rowData[i].id   + "</td>" +
+						              "<td>" + rowData[i].username    + "</td>" +
+						              "<td>" + rowData[i].country + "</td>" +
+						              "<td>" + rowData[i].phone + "</td>" +
+						              "<td>" + rowData[i].dateTime + "</td>" +
+						              "</tr>");
+				i++;
+			});
 		}) 
 	}
 	
@@ -265,12 +333,12 @@
 // 		    success: function(data, textStatus, jqXHR)
 // 		    {
 // 		    	console.log(data);
-// 				$('.datalist').append('<tr><th>Id</th><th>User Name</th><th>Country</th><th>Phone</th><th>Date Time</th><th>Delete</th></tr>');
+// 				$('#datalist').append('<tr><th>Id</th><th>User Name</th><th>Country</th><th>Phone</th><th>Date Time</th><th>Delete</th></tr>');
 // 					var dataList = data.getElementsByTagName("userInfoList123");
 // 	    			for (var i = 0 ; i < 3 ; i++) {
 // 						var idTest = dataList[i].getElementsByTagName("id");
 // 						console.log(idTest);
-// 	        			$('.datalist')
+// 	        			$('#datalist')
 // 	        				.append('<tr><td></td></tr>' )
 // 	        				.append(dataList[i].getElementsByTagName("id"))
 // //	         				.find('td:last')
@@ -293,29 +361,29 @@
 	}
 	
 	function editUserInfo(){
-		var id = $('.idEdit').val();
-		var username = $('.usernameEdit').val();
-		var country = $('.countryEdit').val();
-		var phone = $('.phoneEdit').val();
+		var id = $('input[name="editId"]').val();
+		var username = $('input[name="editUsername"]').val();
+		var country = $('input[name="editCountry"]').val();
+		var phone = $('input[name="editPhone"]').val();
 		$.post('editUserInfoJs.do',{
 			id : id,
 			username : username,
 			country : country,
 			phone : phone
 		}).success(function(){
-				alert("edit successfully");
+				alert('edit successfully');
 				showDataList();
-				showDataList3();
+				showDataList2();
 		})
 		
 	}
 	
 	function addUserInfo(){
-		var account = $('.accountAdd').val();
-		var password = $('.passwordAdd').val();
-		var username = $('.usernameAdd').val();
-		var country = $('.countryAdd').val();
-		var phone = $('.phoneAdd').val();
+		var account = $('input[name="addAccount"]').val();
+		var password = $('input[name="addPassword"]').val();
+		var username = $('input[name="addUsername"]').val();
+		var country = $('input[name="addCountry"]').val();
+		var phone = $('input[name="addPhone"]').val();
 		$.post('addUserInfoJs.do',{
 			account : account,
 			password : password,
@@ -325,7 +393,7 @@
 		}).success(function(){
 				alert('add successfully');
 				showDataList();
-				showDataList3();
+				showDataList2();
 		})
 		
 	}
@@ -333,13 +401,13 @@
 	function deleteUserInfoById(){
         var id = $(this).attr('data-id');
 		$.post('deleteUserInfoJs.do',{
-			id : id,
+			id : id
 		}).success(function(){
 				alert("delete successfully");
 				showDataList();
-				showDataList3();
+				showDataList2();
 		})
 	}
-	
+
 </script>
 </html>

@@ -1,4 +1,4 @@
-package yesee.dev.model.bean;
+package com.yesee.dev.model.bean;
 
 import java.io.Serializable;
 import java.util.Date;

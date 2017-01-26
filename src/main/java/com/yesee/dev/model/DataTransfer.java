@@ -1,8 +1,8 @@
-package yesee.dev.model;
+package com.yesee.dev.model;
 
 import java.util.List;
 
-import yesee.dev.model.bean.UserInfo;
+import com.yesee.dev.model.bean.UserInfo;
 
 
 public class DataTransfer {
@@ -15,10 +15,10 @@ public class DataTransfer {
 	public void setIndex(Integer index) {
 		this.index = index;
 	}
-	public List<UserInfo> getUserInfoList123() {
+	public List<UserInfo> getUserInfoList() {
 		return userInfoList;
 	}
-	public void setUserInfoList123(List<UserInfo> userInfoList) {
+	public void setUserInfoList(List<UserInfo> userInfoList) {
 		this.userInfoList = userInfoList;
 	}
 	

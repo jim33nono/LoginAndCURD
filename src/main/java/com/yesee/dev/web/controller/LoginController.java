@@ -1,4 +1,4 @@
-package yesee.dev.web.controller;
+package com.yesee.dev.web.controller;
 
 
 import org.slf4j.Logger;
@@ -8,12 +8,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.yesee.dev.model.bean.UserInfo;
+import com.yesee.dev.model.service.UserInfoService;
+
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-
-
-import yesee.dev.model.bean.UserInfo;
-import yesee.dev.model.service.UserInfoService;
 
 @Controller
 public class LoginController {
@@ -30,8 +30,6 @@ public class LoginController {
 		return "login";
 	}
 	
-
-
 	@RequestMapping(value = "/tryLogin", method = RequestMethod.POST)
 	public String login(@Validated UserInfo userInfo, BindingResult bindingResult) {
 		boolean loginOrNot = userInfoService.userCheck(userInfo.getAccount(), userInfo.getPassword());

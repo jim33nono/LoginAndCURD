@@ -1,6 +1,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" 
+	xmlns:tx="http://www.springframework.org/schema/tx"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="
         http://www.springframework.org/schema/beans   
@@ -38,7 +39,7 @@
 		</property>
 		<property name="packagesToScan">
 			<list>
-				<value>yesee.dev.model</value>
+				<value>com.yesee.dev.model</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
@@ -51,7 +52,7 @@
 	</bean>
 
 	<!-- 将带有@Component、@Repository、@Service、@Controller标签的类自动注册到spring容器 -->
-	<context:component-scan base-package="yesee.dev" />
+	<context:component-scan base-package="com.yesee.dev" />
 
 	<!-- 配置hibernate事物管理器 -->
 	<bean id="transactionManager"
@@ -77,7 +78,7 @@
 	</bean>
 
 	<!-- 配置静態资源 -->
-	<mvc:default-servlet-handler />
+<!-- 	<mvc:default-servlet-handler /> -->
 	<!-- 配置注解 -->
 	<mvc:annotation-driven />
 </beans>

@@ -1,15 +1,16 @@
-package yesee.dev.model.service;
+package com.yesee.dev.model.service;
 
 import java.util.List;
-import yesee.dev.model.bean.UserInfo;
-import yesee.dev.model.dao.UserInfoDao;
-import yesee.dev.web.controller.LoginController;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.yesee.dev.model.bean.UserInfo;
+import com.yesee.dev.model.dao.UserInfoDao;
+import com.yesee.dev.web.controller.LoginController;
 
 @Service
 @Transactional(readOnly = true)

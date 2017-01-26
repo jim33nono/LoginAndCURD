@@ -1,4 +1,4 @@
-package yesee.dev.web.controller;
+package com.yesee.dev.web.controller;
 
 import java.util.Date;
 import java.util.List;
@@ -9,15 +9,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import yesee.dev.model.DataTransfer;
-import yesee.dev.model.bean.UserInfo;
-import yesee.dev.model.service.UserInfoService;
+import com.yesee.dev.model.DataTransfer;
+import com.yesee.dev.model.bean.UserInfo;
+import com.yesee.dev.model.service.UserInfoService;
 
 @Controller
 @RequestMapping("/")
@@ -34,36 +35,35 @@ public class ResultController {
 		return new ModelAndView("result", "userInfoList", userInfoList);
 	}
 
-//	@RequestMapping(value = "/showDataListJs2", method = RequestMethod.POST)
-//	@ResponseBody
-//	public List<UserInfo> showDataList2() {
-//		List<UserInfo> userInfoList = userInfoService.findAll();
-//		LOGGER.info("-------------------------------------");
-//
-////		Map<String, Object> model = new HashMap<String, Object>();
-////		model.put("list", userInfoList);
-//		UserInfo userInfo = userInfoService.findById(2).get(0);
-//		return userInfoList;
-//	}
-	
+	// @RequestMapping(value = "/showDataListJs2", method = RequestMethod.POST)
+	// @ResponseBody
+	// public List<UserInfo> showDataList2() {
+	// List<UserInfo> userInfoList = userInfoService.findAll();
+	// LOGGER.info("-------------------------------------");
+	//
+	//// Map<String, Object> model = new HashMap<String, Object>();
+	//// model.put("list", userInfoList);
+	// UserInfo userInfo = userInfoService.findById(2).get(0);
+	// return userInfoList;
+	// }
+
 	@RequestMapping("/showDataListJs3")
 	public ModelAndView showDataListJs3(UserInfo userInfo) {
 		List<UserInfo> userInfoList = userInfoService.findAll();
 		return new ModelAndView("data", "userInfoList", userInfoList);
 	}
-	
 
-	 @RequestMapping(value = "/showDataListJs2", method = RequestMethod.POST, produces="application/json")
-	 @ResponseBody
-	 public DataTransfer showDataList2() {
-	 List<UserInfo> userInfoList = userInfoService.findAll();
-	 // return new ModelAndView("page", "showUserInfoList" , userInfoList);
-	 DataTransfer dataTransfer = new DataTransfer();
-	 dataTransfer.setIndex(0);
-	 dataTransfer.setUserInfoList123(userInfoList);
-	 return dataTransfer;
-	
-	 }
+	@RequestMapping(value = "/showDataListJs2", method = RequestMethod.POST, produces = "application/json")
+	@ResponseBody
+	public DataTransfer showDataList2() {
+		List<UserInfo> userInfoList = userInfoService.findAll();
+		// return new ModelAndView("page", "showUserInfoList" , userInfoList);
+		DataTransfer dataTransfer = new DataTransfer();
+		dataTransfer.setIndex(0);
+		dataTransfer.setUserInfoList(userInfoList);
+		return dataTransfer;
+
+	}
 
 	@RequestMapping(value = "/showDataListJs", method = RequestMethod.GET)
 	@ResponseBody
@@ -114,15 +114,28 @@ public class ResultController {
 	}
 
 	@RequestMapping(value = "/editUserInfoJs", method = RequestMethod.POST)
-	public void editUserInfoJs(UserInfo userInfo) { // ModelAttribute("userInfo")
+	@ResponseBody
+	public void editUserInfoJs(UserInfo userInfo) { // @ModelAttribute("userInfo")
 		userInfo.setDateTime(new Date());
 		LOGGER.info("go to editUserInfo controller");
-		userInfoService.updateUserInfo(userInfo);
-
+		userInfoService.updateUserInfo(userInfo); 
+		
 	}
+	
+//	@RequestMapping(value = "/editUserInfoJs", method = RequestMethod.POST)
+//	public void editUserInfoJs(UserInfo userInfo) { // ModelAttribute("userInfo")
+//		userInfo.setDateTime(new Date());
+//		LOGGER.info("go to editUserInfo controller");
+//		UserInfo newUserInfo = userInfoService.findById(userInfo.getId()).get(0);
+//		newUserInfo.setUsername(userInfo.getUsername());
+//		newUserInfo.setCountry(userInfo.getCountry());
+//		newUserInfo.setPhone(userInfo.getPhone());
+//		newUserInfo.setDateTime(userInfo.getDateTime());
+//		userInfoService.addUserInfo(newUserInfo); 
+//	}
 
 	@RequestMapping(value = "/addUserInfo", method = RequestMethod.POST)
-	public String addUserInfo(@Validated UserInfo userInfo, BindingResult bindingResult) { // ModelAttribute("userInfo")
+	public String addUserInfo(@Validated UserInfo userInfo, BindingResult bindingResult) { // @ModelAttribute("userInfo")
 		userInfo.setDateTime(new Date());
 		if (bindingResult.hasErrors()) {
 			LOGGER.info("Validation Error");
@@ -135,6 +148,7 @@ public class ResultController {
 	}
 
 	@RequestMapping(value = "/addUserInfoJs", method = RequestMethod.POST)
+	@ResponseBody
 	public void addUserInfoJs(UserInfo userInfo) { // ModelAttribute("userInfo")
 		userInfo.setDateTime(new Date());
 		LOGGER.info("go to addUserInfoJs controller");
